@@ -1,4 +1,4 @@
-# Dibz Engineering Take-Home Exercise
+# Dibz Engineering Interview Exercise
 
 💫 Welcome to the Dibz interview coding exercise! 🎉
 
