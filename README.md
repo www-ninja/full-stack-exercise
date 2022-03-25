@@ -16,8 +16,6 @@ The exercise requires [Node.js](https://nodejs.org/en/) to be installed. We reco
 
 1. Then run `npm start` which should start both the server and the React client.
 
-❗️ **Make sure you commit all changes to the master branch!**
-
 ## Technical Notes
 
 - The server is running with [nodemon](https://nodemon.io/) which will automatically restart for you when you modify and save a file.
@@ -30,11 +28,11 @@ The exercise requires [Node.js](https://nodejs.org/en/) to be installed. We reco
 
 Below is a list of user stories corresponding to our acceptance criteria.
 
-1. Filter out createdAt and updatedAt fields from the /team endpoint response.
+1. Filter out `createdAt` and `updatedAt` fields from the `/team` endpoint response.
 
-1. Alphabetically sort the /team endpoint response by first name.
+1. Alphabetically sort the `/team` endpoint response by first name.
 
-1. I can fill out a form with my team member information as per the data model (see `backend/model.js`).
+1. I can fill out a form with my required team member information as per the data model (see `backend/model.js`).
 
 1. Submitting the form will create a new team member in the database that persists on reload.
 

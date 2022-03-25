@@ -4,7 +4,7 @@
     box-shadow: 0 10px 25px rgba(79, 82, 177, 0.35);
     display: inline-flex;
     flex-direction: column;
-    height: 550px;
+    height: 600px;
     text-align: center;
     width: 359px;
     margin-bottom: 112px;
@@ -53,11 +53,12 @@ form label {
     display: block;
     text-align: left;
     font-size: 16px;
+    margin-top: 16px;
     margin-bottom: 4px;
 }
 
-form label:last-of-type {
-    margin-top: 16px;
+form label:first-of-type {
+    margin-top: 0;
 }
 
 form button {
@@ -80,7 +81,7 @@ footer {
     color: white;
     display: flex;
     flex-direction: column;
-    height: 122px;
+    height: 100px;
     justify-content: center;
 }
 

@@ -6,23 +6,25 @@ import { pickRandomColor } from './colors';
 const randomNum = () => {
     return (Math.random() + 8.5).toFixed(1);
 };
+const genericAvatarPath = '/img/avatar.jpeg';
+const storyPlaceholder = 'Amazing things to come...';
 
-const TeamMember = ({ name, title, photoUrl, story, favoriteColor = pickRandomColor() }) => {
+const TeamMember = ({ name, title, photoUrl, story, favoriteColor }) => {
     return (
         <div className="container">
             <header>
                 <div className="avatar-container">
                     <img
                         className="avatar"
-                        src={photoUrl}
+                        src={photoUrl || genericAvatarPath}
                         alt={name}
                     />
                 </div>
                 <h2 className="title">{title}</h2>
                 <h1 className="name">{name}</h1>
             </header>
-            <div className="body">{story}</div>
-            <footer style={{ backgroundColor: favoriteColor }}>
+            <div className="body">{story || storyPlaceholder}</div>
+            <footer style={{ backgroundColor: favoriteColor || pickRandomColor() }}>
                 <div className="full-width-flex-box">
                     <div className="one-third-flex-box stat">{randomNum()}</div>
                     <div className="one-third-flex-box stat bordered">{randomNum()}</div>
@@ -44,11 +46,6 @@ TeamMember.propTypes = {
     photoUrl: PropTypes.string,
     story: PropTypes.string,
     favoriteColor: PropTypes.string,
-};
-
-TeamMember.defaultProps = {
-    photoUrl: '/img/avatar.jpeg',
-    story: null,
 };
 
 export default TeamMember;

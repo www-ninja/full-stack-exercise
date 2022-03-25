@@ -6,6 +6,7 @@ const TeamMemberForm = () => {
     const [color] = useState(pickRandomColor());
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [title, setTitle] = useState('');
 
     // On form submit, add new member to our database and update team member list
     const onSubmit = event => {
@@ -41,7 +42,15 @@ const TeamMemberForm = () => {
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                     />
-                    <button type="submit" disabled={firstName === '' || lastName === ''}>Submit</button>
+                    <label htmlFor="last-name">Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <button type="submit" disabled={firstName === '' || lastName === '' || title === ''}>Submit</button>
                 </form>
             </div>
             <footer style={{ backgroundColor: color }}>

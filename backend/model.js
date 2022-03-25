@@ -24,7 +24,6 @@ TeamMember.init(
         },
         story: {
             type: Sequelize.STRING,
-            allowNull: false,
         },
         favoriteColor: {
             type: Sequelize.STRING,
