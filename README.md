@@ -40,9 +40,10 @@ Below is a list of user stories corresponding to our acceptance criteria.
 
 Thank you and good luck! 🙏
 
-Application running screenshots: 
+Application running screenshots 1: 
 
 ![alt text](./Screen%20Shot%202022-05-02%20at%2010.49.12%20PM.png)
 
+Application running screenshots 2: 
 
 ![alt text](./Screen%20Shot%202022-05-02%20at%2010.49.25%20PM.png)
