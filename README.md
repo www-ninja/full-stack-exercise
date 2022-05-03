@@ -39,3 +39,10 @@ Below is a list of user stories corresponding to our acceptance criteria.
 1. I can see team member cards for all of the new team members I have created.
 
 Thank you and good luck! 🙏
+
+Application running screenshots: 
+
+![alt text](./Screen%20Shot%202022-05-02%20at%2010.49.12%20PM.png)
+
+
+![alt text](./Screen%20Shot%202022-05-02%20at%2010.49.25%20PM.png)
