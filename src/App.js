@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import TeamMember, {TeamMemberForm} from './components/TeamMember';
+import TeamMember, { TeamMemberForm } from './components/TeamMember';
 import './App.css';
 
 const App = (props) => {
     const [team, setTeam] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const fetchData = useCallback(async () => {
+        try {
+            setLoading(true);
+            const response = await axios.get('/team');
+
+            setTeam(response.data);
+            setLoading(false);
+        } catch (error) {
+            // try again after half a second if fails due to race condition
+            console.log('retrying initial data request...');
+            setTimeout(() => {
+                fetchData();
+            }, 500);
+        }
+    });
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const response = await axios.get('/team');
-
-                setTeam(response.data);
-                setLoading(false);
-            } catch (error) {
-                // try again after half a second if fails due to race condition
-                console.log('retrying initial data request...');
-                setTimeout(() => {
-                    fetchData();
-                }, 500);
-            }
-        };
-
         fetchData();
     }, []);
 
@@ -46,7 +45,7 @@ const App = (props) => {
                 />
             ))}
             {/* Make this new team member link to your form! */}
-            <TeamMemberForm id="new" name="Join us!" title="New Teammate" />
+            <TeamMemberForm fetchDataFn={fetchData} id="new" name="Join us!" title="New Teammate" />
         </div>
     );
 };

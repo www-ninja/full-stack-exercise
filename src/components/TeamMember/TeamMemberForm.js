@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useCallback, useState } from 'react';
 import { pickRandomColor } from './colors';
 import './TeamMember.css';
 
-const TeamMemberForm = () => {
+const TeamMemberForm = ({fetchDataFn}) => {
     const [color] = useState(pickRandomColor());
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [title, setTitle] = useState('');
 
     // On form submit, add new member to our database and update team member list
-    const onSubmit = event => {
-        event.preventDefault();
 
+
+    const clearForm = useCallback(() => {
+        setFirstName("");
+        setLastName("");
+        setTitle("");
+    })
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const { data } = await axios.post("/team", {
+            firstName,
+            lastName,
+            title
+        })
+        fetchDataFn();
+        clearForm();
         console.log('Submitted form');
     }
 
